@@ -2,6 +2,9 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 
 // Funktion för att registrera ny användare
+async function registerUser(req, res) {
+  console.log("från registerUser");
+}
 
 
 // Funktion för att logga in
@@ -36,4 +39,4 @@ async function logoutUser(req, res, next){
 }
 
 
-module.exports = { loginUser, logoutUser };
+module.exports = { loginUser, logoutUser, registerUser };

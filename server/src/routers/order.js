@@ -4,8 +4,8 @@ const { userIsLoggedIn, userLoggedInAsAdmin } = require ("../middlewares/middlew
 const { validate } = require ("../utilities/userValidation.js");
 const orderRouter = express.Router();
 
-orderRouter.post("/", userIsLoggedIn, createOrder);
-orderRouter.get("/", userIsLoggedIn, getOrders);
-orderRouter.get("/:id", userIsLoggedIn, getOrderById); 
+//orderRouter.post("/", userIsLoggedIn, createOrder);
+//orderRouter.get("/", userIsLoggedIn, getOrders);
+//orderRouter.get("/:id", userIsLoggedIn, getOrderById); 
 orderRouter.put("/:id", userLoggedInAsAdmin);
 module.exports = { orderRouter };

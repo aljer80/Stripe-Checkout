@@ -3,8 +3,8 @@ const { getProducts, getProductsById } = require("../controllers/product.js");
 const { userIsLoggedIn, userLoggedInAsAdmin} = require ("../middlewares/middlewares.js");
 const productRouter = express.Router();
 
-productRouter.get("", getProducts);
-productRouter.get("/:id", getProductsById);
+//productRouter.get("", getProducts);
+//productRouter.get("/:id", getProductsById); //behövs ej
 productRouter.post("", userIsLoggedIn, userLoggedInAsAdmin);
 
 

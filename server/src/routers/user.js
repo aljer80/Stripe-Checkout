@@ -5,7 +5,7 @@ const { userJoiSchema } = require ("../utilities/userValidation.js");
 const { validate, userIsLoggedIn, userLoggedInAsAdmin } = require ("../middlewares/middlewares.js");//ta bort admin?
 const userRouter = express.Router();
 
-userRouter.get("/:id", userIsLoggedIn, getUserById);
+//userRouter.get("/:id", userIsLoggedIn, getUserById);
 userRouter.post("", userIsLoggedIn, userLoggedInAsAdmin, validate(userJoiSchema), createUser);//ta bort admin?
 userRouter.post("/register", validate(userJoiSchema), registerUser);
 userRouter.post("/login", loginUser);
