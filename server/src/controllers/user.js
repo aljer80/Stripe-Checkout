@@ -29,6 +29,7 @@ async function getUserById(req, res, next){
    
 };
 
+//KAN TAS BORT
 //funktion för att hämta alla användare
 async function getUsers(req, res, next) {
     try{
