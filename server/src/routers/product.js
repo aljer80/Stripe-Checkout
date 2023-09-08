@@ -1,11 +1,11 @@
-//routes för checkout produkter
 const express = require("express");
+const { getProducts, getProductsById } = require("../controllers/product.js"); 
+const { userIsLoggedIn, userLoggedInAsAdmin} = require ("../middlewares/middlewares.js");
 const productRouter = express.Router();
 
-
-
-//routes för produkter
 productRouter.get("", getProducts);
+productRouter.get("/:id", getProductsById);
+productRouter.post("", userIsLoggedIn, userLoggedInAsAdmin);
 
 
 module.exports = { productRouter }; 

@@ -9,9 +9,10 @@ const CLIENT_URL = "http://localhost:5173";
 
 //const data = fs.readFileSync("users.json");
 const { userRouter } = require("../routers/user.js"); 
-const { checkoutRouter } = require("../routers/checkout.js"); 
 const { productRouter } = require("../routers/product.js"); 
+const { orderRouter } = require("../routers/order.js"); 
 const { confirmationRouter } = require("../routers/confirmation.js");
+const { checkoutRouter } = require("../routers/checkout.js"); 
 const { checkoutSession } = require("../controllers/checkout.js");
 
 
@@ -34,12 +35,12 @@ app.use(
 })
 );
 
-app.use("/users", userRouter); 
-app.use("/checkout", checkoutRouter); 
-app.use("/create-checkout-session", checkoutSession)
-app.use("/products", productRouter);
-app.use("/confirmation", confirmationRouter);
-// Route för att logga in en användare ("/login", loginUser);
+app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
+// app.use("/checkout", checkoutRouter); 
+// app.use("/confirmation", confirmationRouter);
+
 
 
 module.exports = { app };
