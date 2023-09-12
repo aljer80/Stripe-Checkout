@@ -2,18 +2,6 @@ const { userJoiSchema } = require("../utilities/userValidation.js");
 const bcrypt = require("bcrypt"); 
 
 
-//funktion för att skapa en användare (kolla vad Stripe behöver)
-async function createUser (req, res, next) {
-    try {
-        //const newUser = 
-        res.status(201).json(newUser);      
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json();
-    }   
-}
-
-
 //funktion för att hämta en specifik användare
 async function getUserById(req, res, next){
     try{
@@ -31,4 +19,4 @@ async function getUserById(req, res, next){
 };
 
 
-module.exports = { getUserById, createUser };
+module.exports = { getUserById };
