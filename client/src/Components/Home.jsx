@@ -2,24 +2,35 @@ import { useState } from "react";
 
 
 function Home() {
-  const [cart, setCart] = useState([
+
+  const cart = [
     {
-      product: "price_1NnPRoFM2JYZGY8MGc8Ahml7",
-      quantity: 1,  
+        product: "price_1NnPRoFM2JYZGY8MGc8Ahml7",
+        quantity: 1
     },
+]
+  // const [cart, setCart] = useState([
+  //   {
+  //     product: "price_1NnPRoFM2JYZGY8MGc8Ahml7",
+  //     quantity: 1,  
+  //   },
   
-  ]);
+  // ]);
  
 
+  // mode: 'payment',
+  //     success_url: `${CLIENT_URL}/confirmation?session_id={CHECKOUT_SESSION_ID}`,
+  //     cancel_url: CLIENT_URL,
+
   async function handlePayment() {
+
     const response = await fetch(
-      "http://localhost:3000/create-checkout-session",
+      "http://localhost:3000/api/checkout/create-checkout-session/",
       {
         method: "POST",
-        headers: {
+        headers: 
+        {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${STRIPE_SECRET_KEY}`,
-          
         },
         body: JSON.stringify(cart),
       }
@@ -29,8 +40,10 @@ function Home() {
       return;
     }
 
-    const { url } = await response.json();
+    const { url, sessionId } = await response.json();
+    localStorage.setItem("session-id", sessionId);
     window.location = url;
+
   }
 
   return (
@@ -38,6 +51,7 @@ function Home() {
       <button onClick={handlePayment}>BETALA VIA STRIPE CHECKOUT</button>
     </div>
   );
+
 }
 
 

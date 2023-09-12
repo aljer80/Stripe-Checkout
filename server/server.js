@@ -8,13 +8,10 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const CLIENT_URL = "http://localhost:5173";
 
 //const data = fs.readFileSync("users.json");
-const { userRouter } = require("../routers/user.js"); 
-const { productRouter } = require("../routers/product.js"); 
-const { orderRouter } = require("../routers/order.js"); 
-const { confirmationRouter } = require("../routers/confirmation.js");
-const { checkoutRouter } = require("../routers/checkout.js"); 
-const { checkoutSession } = require("../controllers/checkout.js");
-
+const { userRouter } = require("./src/routers/user.js"); 
+const { productRouter } = require("./src/routers/product.js"); 
+const { orderRouter } = require("./src/routers/order.js"); 
+const { checkoutRouter } = require("./src/routers/checkout.js"); 
 
 
 //sätta upp middlewares
@@ -38,10 +35,9 @@ app.use(
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
-// app.use("/checkout", checkoutRouter); 
+app.use("/api/checkout", checkoutRouter); 
 // app.use("/confirmation", confirmationRouter);
 
 
 app.listen(process.env.PORT, () => console.log(`The application is listening on port ${process.env.PORT}.`)); 
 
-//leta efter och se om jag importerar app någonstans

@@ -1,6 +1,8 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const fs = require("fs");
 
+
+//Efter verifiering, ver. sessionen
 //funktion för att skapa en order/beställning
 async function createOrder(req, res, next) {
   try {
@@ -44,20 +46,5 @@ function getOrders(req, res, next) {
     }
   }
  
-//funktion för att hämta en specifik order
-  function getOrderById(req, res, next) {
-    try {
-      const orders = readOrdersFromFile();
-      const order = orders.find((order) => order.id === req.params.id);
-  
-      if (!order) {
-        return res.status(404).json(req.params.id + " not found");
-      }
 
-      res.status(200).json(order);
-    } catch (error) {
-      res.status(500).json();
-    }
-  }
-  
-  module.exports = { createOrder, getOrders, getOrderById }; 
+  module.exports = { createOrder, getOrders }; 

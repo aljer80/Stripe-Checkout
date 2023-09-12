@@ -1,0 +1,41 @@
+POST http://localhost:3000/api/checkout/create-checkout-session
+Content-Type: application/json
+
+{
+    "price": "434",
+    "quantity": 1
+}
+
+###
+
+POST http://localhost:3000/api/users/register 
+Content-Type: application/json
+
+{
+    "email": "jernberg.alexandra@gmail.com",
+    "username": "Alex"
+}
+
+
+
+
+
+# app.use("/api/products", productRouter);
+# app.use("/api/users", userRouter);
+# app.use("/api/orders", orderRouter);
+# app.use("/api/checkout", checkoutRouter); 
+
+#PRODUCTS ROUTER
+# productRouter.get("", getProducts);
+# productRouter.post("", userIsLoggedIn, userLoggedInAsAdmin);
+
+#USERS ROUTER
+# userRouter.post("", userIsLoggedIn, userLoggedInAsAdmin, validate(userJoiSchema), createUser);//ta bort admin?
+# userRouter.post("/register", validate(userJoiSchema), registerUser);
+# userRouter.post("/login", loginUser);
+# userRouter.post("/logout", logoutUser);
+
+#ORDERS ROUTER
+
+
+#CHECKOUT ROUTER

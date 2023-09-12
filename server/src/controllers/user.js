@@ -13,6 +13,7 @@ async function createUser (req, res, next) {
     }   
 }
 
+
 //funktion för att hämta en specifik användare
 async function getUserById(req, res, next){
     try{
@@ -29,16 +30,5 @@ async function getUserById(req, res, next){
    
 };
 
-//KAN TAS BORT
-//funktion för att hämta alla användare
-async function getUsers(req, res, next) {
-    try{
-        //const users = 
-        res.status(200).json(users);
-    } catch (error) {
-        res.status(400).json(error);
-    }
-};
 
-
-module.exports = { createUser, getUserById, getUsers };
+module.exports = { getUserById, createUser };
