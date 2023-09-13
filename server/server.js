@@ -12,6 +12,7 @@ const { userRouter } = require("./src/routers/user.js");
 const { productRouter } = require("./src/routers/product.js"); 
 const { orderRouter } = require("./src/routers/order.js"); 
 const { checkoutRouter } = require("./src/routers/checkout.js"); 
+const { customerRouter } = require("./src/routers/customer.js"); 
 
 
 //sätta upp middlewares
@@ -34,6 +35,7 @@ app.use(
 
 app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
+app.use("/api/customers", customerRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/checkout", checkoutRouter); 
 // app.use("/confirmation", confirmationRouter);

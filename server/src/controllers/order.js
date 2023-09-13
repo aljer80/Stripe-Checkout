@@ -2,7 +2,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const fs = require("fs");
 
 
-//Efter verifiering, ver. sessionen
+//Efter verifiering, ver. sessionen innehåller id:t
 //funktion för att skapa en order/beställning
 async function createOrder(req, res, next) {
   try {
@@ -36,7 +36,7 @@ function writeOrdersToFile(orders) {
   fs.writeFileSync(ordersFilePath, jsonData);
 }
 
-//funktion för att hämta alla ordrar
+//funktion för att hämta alla sina egna ordrar
 function getOrders(req, res, next) {
     try {
       const orders = readOrdersFromFile();

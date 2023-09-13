@@ -6,8 +6,8 @@ const { validate, userIsLoggedIn, userLoggedInAsAdmin } = require ("../middlewar
 const userRouter = express.Router();
 
 userRouter.get("/:id", userIsLoggedIn);
-userRouter.post("/", userIsLoggedIn, userLoggedInAsAdmin, validate(userJoiSchema));//ta bort admin?
-userRouter.post("/register", validate(userJoiSchema), registerUser);
+userRouter.post("/", userIsLoggedIn, userLoggedInAsAdmin, );    //validate(userJoiSchema)
+userRouter.post("/register", registerUser);    //validate(userJoiSchema),
 userRouter.post("/login", loginUser);
 userRouter.post("/logout", logoutUser);
 

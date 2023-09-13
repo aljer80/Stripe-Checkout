@@ -2,9 +2,10 @@ POST http://localhost:3000/api/checkout/create-checkout-session
 Content-Type: application/json
 
 {
-    "price": "434",
-    "quantity": 1
+    "price:" "price_1NnPRoFM2JYZGY8MGc8Ahml7"
+    "quantity:" "1"
 }
+
 
 ###
 
@@ -12,8 +13,8 @@ POST http://localhost:3000/api/users/register
 Content-Type: application/json
 
 {
-    "email": "jernberg.alexandra@gmail.com",
-    "username": "Alex"
+    "username": "jernberg.alexandra@gmail.com", 
+    "password": "sdlfje3"
 }
 
 
