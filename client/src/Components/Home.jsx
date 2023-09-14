@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react"; 
 
 
-function Home() {
+function Home({Products}) {
 
+ 
+  
   // const cart = [
   //   {
   //       product: "price_1NnPRoFM2JYZGY8MGc8Ahml7",

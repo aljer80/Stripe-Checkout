@@ -1,15 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Confirmation from "./Components/Confirmation";
+import Main from "./Components/Main";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="confirmation" element={<Confirmation />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <Main />
+      <Footer /> 
+    </div>
+    
   );
 }
 

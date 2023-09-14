@@ -42,5 +42,14 @@ function renderProducts() {
 
 }
 
+// VILL HA DEN HÄR DATAN FRÅN OBJEKTET
+  // const product = {
+  //     id: product.id,
+  //     image: product.images,
+  //     name: product.name,
+  //     price: product.default_price,  
+  //     description: product.description
+  // }
+
 
 export default renderProducts;
