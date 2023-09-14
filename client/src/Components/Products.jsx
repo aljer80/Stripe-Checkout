@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-//PÅBÖRJAD FUNKTION, EJ KLAR! 
 function renderProducts() {
+  
     const [products, setProducts] = useState([]);
   
     useEffect(() => {
@@ -39,8 +39,8 @@ function renderProducts() {
         </div>
       </div>
     );
-  }
 
-  
+}
 
-export default renderProducts
+
+export default renderProducts;
