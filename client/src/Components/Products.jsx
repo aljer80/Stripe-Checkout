@@ -27,12 +27,12 @@ function renderProducts() {
           {products.map((product) => (
             <div key={product.id} className="product">
               <div className="product-image">
-                <img src={product.image} alt={product.name} />
+                <img src={product.images} alt={product.name} />
               </div>
               <div className="product-details">
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
-                <p>Pris: {product.price}</p>
+                <p>Pris: {product.default_price}</p>
               </div>
             </div>
           ))}
@@ -42,14 +42,7 @@ function renderProducts() {
 
 }
 
-// VILL HA DEN HÄR DATAN FRÅN OBJEKTET
-  // const product = {
-  //     id: product.id,
-  //     image: product.images,
-  //     name: product.name,
-  //     price: product.default_price,  
-  //     description: product.description
-  // }
+  // price: product.default_price.unit_amount 
 
 
 export default renderProducts;

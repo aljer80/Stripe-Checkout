@@ -4,7 +4,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 
 // Sökväg till JSON-filen
-const usersFilePath = "../utilities/users.json";
+const usersFilePath = "./src/utilities/users.json";
 
 
 // Funktion för att läsa användare från JSON-filen

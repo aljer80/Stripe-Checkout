@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function LoginPage() {
 
     //LOGINFORMULÄRET
-    //State för för inloggningsformuläret
+    //State för inloggningsformuläret
     const [loginData, setLoginData] = useState({
         loginEmail: "",
         loginPassword: "",
@@ -19,9 +19,31 @@ function LoginPage() {
     };
 
     //Funktion som anropas när användaren skickar loginformuläret
-    const handleLoginSubmit = (e) => {
+    const handleLoginSubmit = async (e) => {
         e.preventDefault();
         // Skicka inloggningsdata till backend för inloggning
+        const loginDataToSend = {
+            username: loginData.loginEmail,
+            password: loginData.loginPassword,
+        };
+        
+        try {
+            const response = await fetch("http://localhost:3000/api/users/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginDataToSend),
+            });
+           
+            if (!response.ok) {
+            throw new Error("Inloggningen misslyckades", response.status, response.statusText);
+            } 
+            // Här kan man lägga in logik för vad som sak göras om inloggningen lyckades
+        } catch (error) {
+            console.error("Fel vid inloggning", error.message);
+        }
+            
     };
 
 
@@ -45,9 +67,35 @@ function LoginPage() {
     };
 
     //Funktion som anropas när användaren skickar registreringsformuläret
-    const handleRegisterSubmit = (e) => {
+    const handleRegisterSubmit = async (e) => {
         e.preventDefault();
+        console.log(registerData);
         // Skicka registreringsdata till backend för att skapa ett konto
+        const registerDataToSend = {
+            firstName: registerData.firstName,
+            lastName: registerData.lastName,
+            email: registerData.email,
+            password: registerData.password,
+        };
+        
+        try {
+            const response = await fetch("http://localhost:3000/api/users/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registerDataToSend),
+            });
+            
+            if (!response.ok) {
+            throw new Error("Registrering misslyckades:", response.status, response.statusText);
+            }
+            console.error(error.message);
+            // Hantera registreringen och användarinformation från svaret här!
+            //Här kan man lägga in logik för vad som sak göras om registreringen lyckades
+        } catch (error) {
+            console.error(error);
+        }
     };
 
 

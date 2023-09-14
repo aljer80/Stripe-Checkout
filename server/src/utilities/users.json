@@ -1,3 +1,11 @@
 [
-    
+  {
+    "username": "jernberg.alexandra@gmail.com",
+    "password": "$2b$10$FomyTN5ZWxV3CdYNJPGbQudU1TXBn.8N6orpOPnAo2vXsgk1TNjn6",
+    "stripeCustomerId": "cus_OddW2yvJO469BZ"
+  },
+  {
+    "password": "$2b$10$Wmh57w1bE5SjQ.CgI37i6ONa8h263h.ER2AVh72DRgfnGoqGpGRAa",
+    "stripeCustomerId": "cus_OddZnAi7Bst3KP"
+  }
 ]
