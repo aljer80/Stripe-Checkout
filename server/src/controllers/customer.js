@@ -1,6 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-async function createCustomer(req, res) {    //CUSTOMER ELLER USER?
+async function createCustomer(req, res) { 
     let endpoint= "https://api.stripe.com/v1/customers"; 
     let requestOptions = {
         method:"POST",

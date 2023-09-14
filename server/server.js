@@ -7,6 +7,8 @@ const cookieSession = require("cookie-session");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const CLIENT_URL = "http://localhost:5173";
 
+
+
 //const data = fs.readFileSync("users.json");
 const { userRouter } = require("./src/routers/user.js"); 
 const { productRouter } = require("./src/routers/product.js"); 
