@@ -1,11 +1,22 @@
 [
   {
     "username": "jernberg.alexandra@gmail.com",
-    "password": "$2b$10$FomyTN5ZWxV3CdYNJPGbQudU1TXBn.8N6orpOPnAo2vXsgk1TNjn6",
-    "stripeCustomerId": "cus_OddW2yvJO469BZ"
+    "password": "$2b$10$UM7zAKyTR1makV0WStRT.ONHjArhH5dI358jhxIumbTeV4QuDKM9y",
+    "stripeCustomerId": "cus_OdpHQRB0ugT3PZ"
   },
   {
-    "password": "$2b$10$Wmh57w1bE5SjQ.CgI37i6ONa8h263h.ER2AVh72DRgfnGoqGpGRAa",
-    "stripeCustomerId": "cus_OddZnAi7Bst3KP"
+    "username": "jernberg.alexandra@yahoo.com",
+    "password": "$2b$10$w8GLhwK3fU.6OyBn/0iSw.72ETpsJP.7kvHvIf0REuCCN9NdY9hTu",
+    "stripeCustomerId": "cus_OdpI3kzRGiBd2m"
+  },
+  {
+    "username": "niclas.jernberg@live.se",
+    "password": "$2b$10$UT0rUu9FQZ8hYRc6I9vMv.XFrOOvfLRm.utCJrfI5t1sJvYpbB0vW",
+    "stripeCustomerId": "cus_OdpPKCqVyCTmKo"
+  },
+  {
+    "username": "niclas.jernberg@hotmail.se",
+    "password": "$2b$10$nLvbkhKxWEdkMTCAE.r22u9n16hE.dPqWojYXDvnXIedAX8e6f6Cq",
+    "stripeCustomerId": "cus_OdpQ9oVm5IpQWt"
   }
 ]

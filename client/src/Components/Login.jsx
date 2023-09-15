@@ -21,6 +21,7 @@ function LoginPage() {
     //Funktion som anropas när användaren skickar loginformuläret
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
+        console.log(loginData);
         // Skicka inloggningsdata till backend för inloggning
         const loginDataToSend = {
             username: loginData.loginEmail,
@@ -28,7 +29,7 @@ function LoginPage() {
         };
         
         try {
-            const response = await fetch("http://localhost:3000/api/users/login", {
+            const response = await fetch("/api/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,14 +47,12 @@ function LoginPage() {
             
     };
 
-
-
     //REGISTRERINGSFORMULÄRET
     //State för för registreringsformuläret
     const [registerData, setRegisterData] = useState({
         firstName: "",
         lastName: "",
-        email: "",
+        username: "",
         password: "",
         });
 
@@ -74,7 +73,7 @@ function LoginPage() {
         const registerDataToSend = {
             firstName: registerData.firstName,
             lastName: registerData.lastName,
-            email: registerData.email,
+            username: registerData.username,
             password: registerData.password,
         };
         
@@ -90,11 +89,10 @@ function LoginPage() {
             if (!response.ok) {
             throw new Error("Registrering misslyckades:", response.status, response.statusText);
             }
-            console.error(error.message);
             // Hantera registreringen och användarinformation från svaret här!
             //Här kan man lägga in logik för vad som sak göras om registreringen lyckades
         } catch (error) {
-            console.error(error);
+            console.error(error.message);
         }
     };
 
@@ -170,7 +168,7 @@ function LoginPage() {
                 <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="username"
                     value={registerData.email}
                     onChange={handleRegisterChange}
                     required
