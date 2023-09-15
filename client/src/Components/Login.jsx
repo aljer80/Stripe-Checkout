@@ -3,6 +3,8 @@ import "../assets/css/login.css";
 
 function LoginPage() {
 
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
+
     //LOGINFORMULÄRET
     //State för inloggningsformuläret
     const [loginData, setLoginData] = useState({
@@ -41,11 +43,17 @@ function LoginPage() {
             if (!response.ok) {
             throw new Error("Inloggningen misslyckades", response.status, response.statusText);
             } 
-            // Här kan man lägga in logik för vad som sak göras om inloggningen lyckades
+            // Logik för vad som ska göras om inloggningen lyckades
+            setLoginData({
+                loginEmail: "",
+                loginPassword: "",
+            });
+
+            setIsLoggedIn(true);
+
         } catch (error) {
             console.error("Fel vid inloggning", error.message);
         }
-            
     };
 
     //REGISTRERINGSFORMULÄRET
@@ -91,7 +99,16 @@ function LoginPage() {
             throw new Error("Registrering misslyckades:", response.status, response.statusText);
             }
             // Hantera registreringen och användarinformation från svaret här!
-            //Här kan man lägga in logik för vad som sak göras om registreringen lyckades
+            //Här kan man lägga in logik för vad som ska göras om registreringen lyckades
+            setRegisterData({
+                firstName: "",
+                lastName: "",
+                username: "",
+                password: "",           
+            });
+
+            setIsLoggedIn(true);
+
         } catch (error) {
             console.error(error.message);
         }
