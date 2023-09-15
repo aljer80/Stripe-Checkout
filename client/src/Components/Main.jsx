@@ -13,7 +13,7 @@ function Main() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="/cancel" element={<Cancel />} /> 
-                <Route path="/" element={<Products />} />
+                <Route path="/products" element={<Products />} />
             </Routes>
         </div>
     

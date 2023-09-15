@@ -39,11 +39,13 @@ function Home({Products}) {
         body: JSON.stringify(cart),
         }
       );
+
       if (!response.ok) {
         throw new Error("Något gick fel vid hämtning av data.");
       }
+      
       const { url, sessionId } = await response.json();
-      sessionStorage.setItem("session-id", sessionId);
+      localStorage.setItem("session-id", sessionId);
       window.location = url;
     } catch (error) {
       console.error(error);
