@@ -24,5 +24,17 @@ const CLIENT_URL = "http://localhost:5173/";
 
   };
   
+//Verify Session 
+const verifySession = async (req, res) => {
+  try {
+      console.log(req.body.sessionId);
+      res.status(200).json({ verified: true });
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).json("400 Error. Något blev fel på clientsidan.");
+  }
 
-module.exports = { checkoutSession }; 
+};
+
+
+module.exports = { checkoutSession, verifySession }; 
