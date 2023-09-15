@@ -25,6 +25,7 @@ section {
     align-items: center;
     border-radius: 10px; /* Rundade hörn */
     margin-bottom: 2rem; /* Mellanrum mellan sektionerna */
+    line-height: 1.5rem;
 }
 
 form {
@@ -32,6 +33,7 @@ form {
     flex-direction: column;
     width: 90%; /* Full bredd av sektionen */
     text-align: left;
+    margin-top: 1rem;
 }
 
 label {
@@ -56,4 +58,9 @@ button {
 
 button:hover {
     background-color: #0056b3; 
+}
+
+h1{
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
 }
