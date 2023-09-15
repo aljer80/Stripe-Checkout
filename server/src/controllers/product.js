@@ -2,7 +2,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 async function getProducts(req, res) {
   try {
-    const products = await stripe.products.list();
+    const products = await stripe.products.list({expand:["data.default_price"]});
 
     // Formatera och returnera produkterna
     const formattedProducts = products.data.map((product) => ({
@@ -10,7 +10,7 @@ async function getProducts(req, res) {
       images: product.images,
       name: product.name,
       description: product.description,
-      price: product.default_price.unit_amount // Om du har prisinformation som metadata i Stripe
+      price: product.default_price.unit_amount // populate, expand
       // Lägg till andra önskade fält här
     }));
 
