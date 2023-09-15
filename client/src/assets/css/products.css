@@ -1,0 +1,26 @@
+
+  .product-container {
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap; /* Produkter kommer att gå till nästa rad om de inte får plats */
+    justify-content: space-between; /* Jämnt fördelade produkter på raden */
+  }
+  
+  .product {
+    width: calc(20% - 1rem); /* Cirka 20% bredd med en kudde mellan produkterna */
+    margin-bottom: 2rem; /* Utrymme mellan produkterna (kan ändras efter behov) */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Skugga runt varje produkt */
+    border: 1px solid rgb(201, 201, 201); /* Grå ram runt varje produkt */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-image img {
+    width: 100%; /* Fyll hela bredden av produktens container */
+    height: auto; /* Behåll bildens proportioner */
+  }
+  
+  
+  

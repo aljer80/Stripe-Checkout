@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../assets/css/products.css"
 
 function renderProducts() {
   
@@ -32,7 +33,7 @@ function renderProducts() {
               <div className="product-details">
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
-                <p>Pris: {product.default_price}</p>
+                <p>Pris: {product.price / 100}kr</p>
               </div>
             </div>
           ))}
