@@ -1,0 +1,59 @@
+/* Styling för inloggningssidan */
+
+body {
+    background-color: rgb(230, 222, 222);
+    display: flex;
+    justify-content: center; /* Centrera horisontellt */
+    align-items: center; /* Centrera vertikalt */
+    min-height: 100vh; /* Fyll hela sidans höjd */
+    margin: 0; /* Ta bort standardmarginaler */
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    width:10vw
+}
+
+section {
+    display: flex;
+    background-color: #f0f0f0; /* Färgad bakgrund */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Rundade hörn */
+    margin-bottom: 2rem; /* Mellanrum mellan sektionerna */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Full bredd av sektionen */
+    text-align: left;
+}
+
+label {
+    margin-right: 1rem;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Styling för knappen */
+button {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; 
+}

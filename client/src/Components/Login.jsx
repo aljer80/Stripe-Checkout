@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../assets/css/login.css";
 
 function LoginPage() {
 
@@ -99,42 +100,45 @@ function LoginPage() {
 
   return (
     <div>
-        <div> 
-            <h1>Inloggning</h1>
-            <h3>Redan kund?</h3>
-            <p>Logga in här:</p>
-            <form onSubmit={handleLoginSubmit}>
-                <div>
-                <label htmlFor="loginEmail">E-post</label>
-                <input
-                    type="email"
-                    id="loginEmail"
-                    name="loginEmail"
-                    value={loginData.loginEmail}
-                    onChange={handleLoginChange}
-                    required
-                />
-                </div>
-                
-                <div>
-                <label htmlFor="loginPassword">Lösenord</label>
-                <input
-                    type="password"
-                    id="loginPassword"
-                    name="loginPassword"
-                    value={loginData.loginPassword}
-                    onChange={handleLoginChange}
-                    required
-                />
-                </div>
+        <article> 
+            <section>
+                <h1>Inloggning</h1>
+                <h3>Redan kund?</h3>
+                <p>Logga in här:</p>
+                <form onSubmit={handleLoginSubmit}>
+                    <div>
+                    <label htmlFor="loginEmail">E-post</label>
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        name="loginEmail"
+                        value={loginData.loginEmail}
+                        onChange={handleLoginChange}
+                        required
+                    />
+                    </div>
+                    
+                    <div>
+                    <label htmlFor="loginPassword">Lösenord</label>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        name="loginPassword"
+                        value={loginData.loginPassword}
+                        onChange={handleLoginChange}
+                        required
+                    />
+                    </div>
 
-                <div>
-                <button type="submit">Logga in</button>
-                </div>
-            </form>
-        </div>
+                    <div>
+                    <button type="submit">Logga in</button>
+                    </div>
+                </form>
+            </section>
+        </article>
 
-        <div>
+        <article> 
+            <section>
             <h1>Registrering</h1>
             <h3>Är du ny?</h3>
             <p>Skapa nytt konto här:</p>
@@ -191,7 +195,8 @@ function LoginPage() {
                 <button type="submit">Registrera</button>
                 </div>
             </form>
-        </div>
+            </section>
+        </article>
     </div>
   );
 }
