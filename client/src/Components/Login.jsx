@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "../assets/css/login.css";
 
 function LoginPage() {
@@ -49,7 +50,7 @@ function LoginPage() {
                 loginPassword: "",
             });
 
-            setIsLoggedIn(true);
+            setIsLoggedIn(true); 
 
         } catch (error) {
             console.error("Fel vid inloggning", error.message);
@@ -108,7 +109,7 @@ function LoginPage() {
             });
 
             setIsLoggedIn(true);
-
+            
         } catch (error) {
             console.error(error.message);
         }
@@ -148,7 +149,9 @@ function LoginPage() {
                     </div>
 
                     <div>
-                    <button type="submit">Logga in</button>
+                    <NavLink to="/products">
+                        <button>Logga in</button>
+                    </NavLink>
                     </div>
                 </form>
             </section>
@@ -209,8 +212,11 @@ function LoginPage() {
                 </div>
 
                 <div>
-                <button type="submit">Registrera</button>
+                <NavLink to="/products">
+                    <button>Registrera</button>
+                </NavLink>
                 </div>
+                
             </form>
             </section>
         </article>

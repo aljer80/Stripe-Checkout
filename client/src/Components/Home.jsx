@@ -47,6 +47,7 @@ function Home({Products}) {
       const { url, sessionId } = await response.json();
       localStorage.setItem("session-id", sessionId);
       window.location = url;
+      
     } catch (error) {
       console.error(error);
     }

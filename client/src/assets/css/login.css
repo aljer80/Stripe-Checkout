@@ -6,13 +6,12 @@ body {
     justify-content: center; /* Centrera horisontellt */
     align-items: center; /* Centrera vertikalt */
     min-height: 100vh; /* Fyll hela sidans höjd */
-    margin: 0; /* Ta bort standardmarginaler */
+    width:100%
 }
 
 article {
     display: flex;
     flex-direction: column;
-    width:10vw
 }
 
 section {
@@ -26,18 +25,15 @@ section {
     border-radius: 10px; /* Rundade hörn */
     margin-bottom: 2rem; /* Mellanrum mellan sektionerna */
     line-height: 1.5rem;
+    width:15rem
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 90%; /* Full bredd av sektionen */
+    width: 90%;
     text-align: left;
     margin-top: 1rem;
-}
-
-label {
-    margin-right: 1rem;
 }
 
 input {
@@ -45,6 +41,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
+   justify-content: center;
 }
 
 /* Styling för knappen */
