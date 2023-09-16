@@ -15,8 +15,8 @@ Content-Type: application/json
 {
     "firstname": "Alexandra",
     "lastname": "Jernberg",
-    "username": "jernberg.alexandra@yahoo.com", 
-    "password": "sdlfje3"
+    "username": "jernberg.alexandra@gmail.com", 
+    "password": "123456"
 }
 
 ###

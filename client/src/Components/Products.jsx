@@ -20,10 +20,18 @@ function renderProducts() {
       }
       getProducts();
     }, []);
+
+    function addToCart(){
+      const cart = [ cart, setCart]
+
+      useEffect( () => {
+        setCart();
+      }, []);
+    }
   
     return (
       <div>
-        <h2>Produkter</h2>
+        {/* <h2>Produkter</h2> */}
         <div className="product-container">
           {products.map((product) => (
             <div key={product.id} className="product">
@@ -32,8 +40,13 @@ function renderProducts() {
               </div>
               <div className="product-details">
                 <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>Pris: {product.price / 100}kr</p>
+                  <div>
+                    <p>{product.description}</p>
+                    <p>Pris: {product.price / 100}kr</p>
+                  </div>
+                  <div>
+                    <button onClick={addToCart}>Köp</button>
+                  </div>
               </div>
             </div>
           ))}
