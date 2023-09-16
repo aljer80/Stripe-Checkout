@@ -1,12 +1,7 @@
 [
   {
     "username": "jernberg.alexandra@gmail.com",
-    "password": "$2b$10$TTlcMXaQ52M2.NNhOsnq1uB8bFltFiiY2ZtZNLaKfbubUcnPiEws6",
-    "stripeCustomerId": "cus_OdtKG2p6Ja3hb7"
-  },
-  {
-    "username": "niclas.jernberg@live.se",
-    "password": "$2b$10$CJTScdliv46A7beeQvmLJuACvYB9zsk6JopKl7Gc8koVLAWDyP2q6",
-    "stripeCustomerId": "cus_OdtR3mGrfoeIzZ"
+    "password": "$2b$10$sXsVkWaZ63kic8qvb5fCMOjlMb0iZnPJlxEfSLaA2.i13FuheHL3u",
+    "stripeCustomerId": "cus_Odz8tNDSz9NT32"
   }
 ]
