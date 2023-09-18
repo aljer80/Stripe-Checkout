@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/products.css"
+import Cart from "./Cart"
 
 function renderProducts() {
   
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);    // Skapar en tom varukorg
   
     useEffect(() => {
       async function getProducts() {
@@ -21,17 +23,21 @@ function renderProducts() {
       getProducts();
     }, []);
 
-    function addToCart(){
-      const cart = [ cart, setCart]
 
-      useEffect( () => {
-        setCart();
-      }, []);
+    function addToCart(priceId){
+      setCart([... cart, {product:priceId, quantity:1}]);
+
     }
+
+    useEffect(() =>{
+     console.log(cart);
+    },[cart])
   
+
     return (
       <div>
-        {/* <h2>Produkter</h2> */}
+        <h1>Produkter</h1>
+        <br />
         <div className="product-container">
           {products.map((product) => (
             <div key={product.id} className="product">
@@ -45,18 +51,20 @@ function renderProducts() {
                     <p>Pris: {product.price / 100}kr</p>
                   </div>
                   <div>
-                    <button onClick={addToCart}>Köp</button>
+                    <button onClick={() => addToCart(product.priceId)}>Köp</button>
                   </div>
               </div>
             </div>
           ))}
         </div>
+        <div className="cart-div">
+          <Cart cart={cart} />
+        </div>
       </div>
     );
 
-}
 
-  // price: product.default_price.unit_amount 
+}
 
 
 export default renderProducts;
