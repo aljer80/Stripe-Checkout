@@ -50,7 +50,7 @@ function LoginPage() {
                 loginPassword: "",
             });
 
-            setIsLoggedIn(true); 
+            setIsLoggedIn(true);
 
         } catch (error) {
             console.error("Fel vid inloggning", error.message);
@@ -109,7 +109,7 @@ function LoginPage() {
             });
 
             setIsLoggedIn(true);
-            
+
         } catch (error) {
             console.error(error.message);
         }
@@ -149,9 +149,10 @@ function LoginPage() {
                     </div>
 
                     <div>
-                    <NavLink to="/products">
                         <button>Logga in</button>
-                    </NavLink>
+                        {/* <NavLink to="/products">
+                        <button>Logga in</button>
+                        </NavLink> */}
                     </div>
                 </form>
             </section>
@@ -212,11 +213,11 @@ function LoginPage() {
                 </div>
 
                 <div>
-                <NavLink to="/products">
+                    <button type="submit">Registrera</button>
+                    {/* <NavLink to="/products">
                     <button>Registrera</button>
-                </NavLink>
+                    </NavLink> */}
                 </div>
-                
             </form>
             </section>
         </article>
