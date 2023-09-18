@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
+import Cart from "./Cart";
 import Login from "./Login";
 import Confirmation from "./Confirmation";
 import Cancel from "./Cancel";
@@ -9,11 +9,11 @@ function Main() {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Cart />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/products" element={<Products />} />
                 <Route path="/confirmation" element={<Confirmation />} />
                 <Route path="/cancel" element={<Cancel />} /> 
-                <Route path="/products" element={<Products />} />
             </Routes>
         </div>
     
