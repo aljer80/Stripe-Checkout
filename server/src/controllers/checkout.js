@@ -14,7 +14,7 @@ const CLIENT_URL = "http://localhost:5173";
         mode: "payment",
         allow_promotion_codes: true, 
         success_url: `${CLIENT_URL}/confirmation`, //man kan - om man vill - få sessions id:t från Stripe här, lagrad i url:en, som en query parameter: success_url: `${CLIENT_URL}/confirmation?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: CLIENT_URL,
+        cancel_url: `${CLIENT_URL}/cancel`,
       });
   
       res.status(200).json({ url: session.url, sessionId: session.id });
