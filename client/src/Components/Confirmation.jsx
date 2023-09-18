@@ -6,8 +6,9 @@ function Confirmation() {
 
     const verifyPayment = async () => {
         try {
-            const sessionId = localStorage.getItem("session-id");
-            const response = await fetch("http://localhost:3000/verify-session", {
+            const sessionId = localStorage.getItem("session-id"); // hämtar ut sessions:id
+            //anropar servern och skickar med sessions id:t
+            const response = await fetch("http://localhost:3000/api/checkout/verify-session", {
             method: "POST",
             headers: {
             "Content-Type": "application/json",                   
@@ -15,7 +16,7 @@ function Confirmation() {
             body: JSON.stringify({ sessionId }),
         });
 
-            const { verified } = await response.json();
+            const { verified } = await response.json();  //kollar vad servern svarar
             
             if(verified) {
             setIsPaymentVerified(true);
@@ -31,18 +32,24 @@ function Confirmation() {
     useEffect(() => {
         verifyPayment();
     }, []);
-    
+
     
     return isPaymentVerified ? ( 
         <div>
-            <p>Tack för ditt köp! <br />
-            En orderbekräftelse har skickats till din E-post. 
+            <h1>Tack för ditt köp!</h1>
+            <h3> En orderbekräftelse har skickats till din E-post. <br />
             Vid frågor vänligen kontakta oss
-            på <a href="mailto:alexandra.jernberg@medieinstitutet.se">info@padelshoppen.se</a>
-            </p>
+            på <a href="mailto:alexandra.jernberg@medieinstitutet.se">info@padelmania.se</a>
+            </h3>
         </div>
         ) : (
-        <h1>Något gick fel med betalningen</h1>
+        <div>
+            <h1>Ditt köp blev inte slutfört, <br/> Var god försök igen!</h1> <br/>
+            <h3>Kontakta vår support om problemet kvarstår.</h3> <br />
+            <h3> Kundtjänstens öppettider är: mån-fre: 9-20 | lör-sön: 10-18 </h3>
+            <h3>Telefon: 0771-42 42 42 <br/>
+            E-post:<a href="mailto:alexandra.jernberg@medieinstitutet.se">kundtjanst@padelmania.se</a></h3><br/>            
+        </div>
     ); 
 
 }
