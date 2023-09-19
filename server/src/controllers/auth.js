@@ -19,7 +19,7 @@ function readUsersFromFile() {
 
 // Funktion för att skriva användare till JSON-filen
 function writeUsersToFile(users) {
-  const jsonData = JSON.stringify(users, null, 2); //ersätta inga värden, indenterad JSON-strängen med två mellanslag
+  const jsonData = JSON.stringify(users, null, 2); //ersätt inga värden, indenterar JSON-strängen med två mellanslag
   fs.writeFileSync(usersFilePath, jsonData);
 }
 
@@ -40,12 +40,12 @@ async function registerUser(req, res) {
     });
 
     const newUser = { 
+      firstName: req.body.firstName, 
+      lastName: req.body.lastName, 
       username: req.body.username, 
       password: hashedPassword, 
       stripeCustomerId: stripeCustomer.id // Spara Stripe Customer ID
     };
-
-  //VILL MAN GÖRA NÅGOT HÄR? 
 
     users.push(newUser);
     writeUsersToFile(users);
