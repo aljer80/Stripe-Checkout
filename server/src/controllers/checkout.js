@@ -4,7 +4,10 @@ const CLIENT_URL = "http://localhost:5173";
 //Checkout Session controls what your customer sees on the payment page such as line items, the order amount and currency, and acceptable payment methods. 
   const checkoutSession = async (req, res) => {
     try {
+      const customerId = req.session.customerId;
+
       const session = await stripe.checkout.sessions.create({
+        customer: customerId, // Anger kund för sessionen
         line_items: req.body.map((item) => {
           return {
             price: item.product,
