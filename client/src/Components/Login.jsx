@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
 import "../assets/css/login.css";
 
 function LoginPage() {
 
-    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     //LOGINFORMULÄRET
     //State för inloggningsformuläret
@@ -33,7 +34,7 @@ function LoginPage() {
         };
         
         try {
-            const response = await fetch("/api/users/login", {
+            const response = await fetch("http://localhost:3000/api/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -42,21 +43,26 @@ function LoginPage() {
             });
            
             if (!response.ok) {
-            throw new Error("Inloggningen misslyckades", response.status, response.statusText);
-            } 
+                const errorData = await response.json();
+                throw new Error(`Inloggningen misslyckades: ${errorData}`);
+            }
+        
             // Logik för vad som ska göras om inloggningen lyckades
+            const user = await response.json();
+            Cookies.set('userId', user.stripeCustomerId); // Användarens ID som sessionscookie
+            console.log('userId: ' +user.stripeCustomerId);
             setLoginData({
                 loginEmail: "",
                 loginPassword: "",
             });
-
             setIsLoggedIn(true);
-
+       
         } catch (error) {
             console.error("Fel vid inloggning", error.message);
         }
     };
 
+    
     //REGISTRERINGSFORMULÄRET
     //State för för registreringsformuläret
     const [registerData, setRegisterData] = useState({
@@ -108,7 +114,7 @@ function LoginPage() {
                 password: "",           
             });
 
-            setIsLoggedIn(true);
+            setIsLoggedIn(false);
 
         } catch (error) {
             console.error(error.message);
