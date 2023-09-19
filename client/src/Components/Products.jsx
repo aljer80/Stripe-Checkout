@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../assets/css/products.css"
 import Cart from "./Cart"
+import "../assets/css/products.css"
+
 
 function renderProducts() {
   
@@ -36,33 +37,49 @@ function renderProducts() {
 
     return (
       <div>
-        <h1>Produkter</h1>
-        <br />
-        <div className="product-container">
-          {products.map((product) => (
-            <div key={product.id} className="product">
-              <div className="product-image">
-                <img src={product.images} alt={product.name} />
+        
+        <div className="wrapper-all_products">
+          <h1>Produkter</h1>
+          <div className="product-container">
+            {products.map((product) => (
+              <div key={product.id} className="product">
+                <div className="product-image">
+                  <img src={product.images} alt={product.name} />
+                </div>
+                <div className="product-details">
+                  <h3 className="product-name">{product.name}</h3>
+                    <div>
+                      <p>{product.description}</p>
+                      <p>Pris: {product.price / 100}kr</p>
+                    </div>
+                    <div className="product-button">
+                      <button onClick={() => addToCart(product.priceId)}>Köp</button>
+                    </div>
+                </div>
+                
               </div>
-              <div className="product-details">
-                <h3>{product.name}</h3>
-                  <div>
-                    <p>{product.description}</p>
-                    <p>Pris: {product.price / 100}kr</p>
-                  </div>
-                  <div>
-                    <button onClick={() => addToCart(product.priceId)}>Köp</button>
-                  </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="cart-div">
-          <Cart cart={cart} />
-        </div>
-      </div>
-    );
+            ))}
+          </div>
 
+          <div className="cart-div">
+            <h1>Kundkorg</h1>
+            <Cart cart={cart}>
+              <div className="products_in_cart-div">
+                {cart.map((cartItem, index) => (
+                  <div key={`${cartItem.product.id}-${index}`}>
+                    <p>{cartItem.product.name}</p>
+                    <div>
+                      <p>Pris: {cartItem.product.price / 100} kr per st</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Cart>
+          </div>
+        </div>
+        
+      </div>
+  );
 
 }
 
