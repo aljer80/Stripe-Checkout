@@ -34,7 +34,7 @@ function renderProducts() {
      console.log(cart);
     },[cart])
   
-
+   
     return (
       <div>
         
@@ -60,7 +60,7 @@ function renderProducts() {
               </div>
             ))}
           </div>
-
+        
           <div className="cart-div">
             <h1>Kundkorg</h1>
             <Cart cart={cart}>
@@ -76,10 +76,10 @@ function renderProducts() {
               </div>
             </Cart>
           </div>
-        </div>
-        
+          </div>
+          
       </div>
-  );
+            );
 
 }
 

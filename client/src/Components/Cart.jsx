@@ -39,11 +39,11 @@ function Cart({cart}) {
     }
   }
 
-
+   
   return isUserLoggedIn ? (
-    <div>
+    <div> 
       <button onClick={handlePayment}>BETALA VIA STRIPE CHECKOUT</button>
-    </div>
+          </div>
   ) : (
     <div>
       <p>Du måste vara inloggad för att kunna gå till kassan. <br />

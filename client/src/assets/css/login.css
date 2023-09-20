@@ -50,6 +50,7 @@ button {
     color: #fff; 
     padding: 5px 10px;
     border-radius: 5px;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -73,12 +74,10 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 10px; 
+    margin-bottom:10px;
 }
 
-/* .product-button{
-    margin: 5px;
+.nav-link{
+    text-decoration: none
 }
-
-.order-button{
-    margin: 5px;
-} */
