@@ -2,10 +2,11 @@ require("dotenv").config(); //läggs högt upp så den läses in det första man
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const fs = require("fs"); 
 const cookieSession = require("cookie-session");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const CLIENT_URL = "http://localhost:5173";
+
+// const fs = require("fs"); 
+// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+// const CLIENT_URL = "http://localhost:5173";
 
 
 
