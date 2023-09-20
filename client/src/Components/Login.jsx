@@ -129,6 +129,18 @@ function LoginPage() {
 
     return isLoggedIn ? ( 
         
+        <div className="is_logged_in-div">
+        <h1>Inloggningen lyckades!</h1>
+        <h3>Välkommen user... <br/></h3>
+        <br />
+        <div className="button-container">
+            <NavLink className="nav-link"  to="/products">
+                <button className="product-button">Gå till produktsidan</button>
+            </NavLink>
+            <button className="order-button" onClick={getOrder()}>Hämta mina ordrar</button> 
+        </div>
+        </div>
+    ) : (
         <div>
             <article> 
                 <section>
@@ -233,18 +245,6 @@ function LoginPage() {
                 </form>
                 </section>
             </article>
-        </div>
-    ) : (
-        <div className="is_logged_in-div">
-        <h1>Inloggningen lyckades!</h1>
-        <h3>Välkommen user... <br/></h3>
-        <br />
-        <div className="button-container">
-            <NavLink to="/products">
-                <button className="product-button">Gå till produktsidan</button>
-            </NavLink>
-            <button className="order-button" onClick={getOrder()}>Hämta mina ordrar</button> 
-        </div>
         </div>
 
     );
