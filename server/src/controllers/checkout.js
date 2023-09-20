@@ -1,10 +1,13 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const fs = require('fs');
+
 const CLIENT_URL = "http://localhost:5173";
+
 
 //Checkout Session controls what your customer sees on the payment page such as line items, the order amount and currency, and acceptable payment methods. 
   const checkoutSession = async (req, res) => {
     try {
-      const customerId = req.session.customerId;
+      const customerId = req.session.stripeCustomerId;
 
       const session = await stripe.checkout.sessions.create({
         customer: customerId, // Anger kund för sessionen
@@ -27,6 +30,26 @@ const CLIENT_URL = "http://localhost:5173";
     }
 
   };
+
+
+// Sökväg till JSON-filen
+const ordersFilePath = "./src/utilities/orders.json";
+
+// Funktion för att läsa användare från JSON-filen
+function readOrdersFromFile() {
+  try {
+    const ordersData = fs.readFileSync(ordersFilePath, 'utf8');
+    return JSON.parse(ordersData);
+  } catch (error) {
+    return [];
+  }
+}
+
+// Funktion för att skriva användare till JSON-filen
+function writeOrdersToFile(orders) {
+  const jsonData = JSON.stringify(orders, null, 2); //ersätt inga värden, indenterar JSON-strängen med två mellanslag
+  fs.writeFileSync(ordersFilePath, jsonData);
+}
 
   
 //Verify Session 
@@ -56,9 +79,13 @@ const verifySession = async (req, res) => {
           };
         }),
       };
-      //SAVE ORDER, SKRIV TILL JSON-filen
-      console.log("Loggar ut order: ", order);
+
+      //Spara ORDER (SKRIV TILL JSON-filen)
+      const orders = readOrdersFromFile(); // Läser in befintliga ordrar
+      //orders.push(order);
+      writeOrdersToFile([... orders, order]); // Sparar ordern i json-filen
       res.status(200).json({ verified:true });
+
   } catch (error) {
     console.log(error.message);
     res.status(400).json("400 Error. Något blev fel på klienten.");
