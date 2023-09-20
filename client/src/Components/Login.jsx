@@ -101,7 +101,6 @@ function LoginPage() {
             },
             body: JSON.stringify(registerDataToSend),
             });
-            
             if (!response.ok) {
             throw new Error("Registrering misslyckades:", response.status, response.statusText);
             }
@@ -113,20 +112,13 @@ function LoginPage() {
                 username: "",
                 password: "",           
             });
-
             setIsLoggedIn(false);
-
         } catch (error) {
             console.error(error.message);
         }
-    };
-
-    //Funktion som hämtar inloggad kunds tidigare ordar
-    function getOrder(){
-        console.log("Hej från get order");
     }
 
-
+    
     return isLoggedIn ? ( 
         
         <div className="is_logged_in-div">
@@ -137,7 +129,7 @@ function LoginPage() {
             <NavLink className="nav-link"  to="/products">
                 <button className="product-button">Gå till produktsidan</button>
             </NavLink>
-            <button className="order-button" onClick={getOrder()}>Hämta mina ordrar</button> 
+            {/* <button className="order-button" onClick={getOrders}>Hämta mina ordrar</button> */}
         </div>
         </div>
     ) : (
@@ -174,9 +166,6 @@ function LoginPage() {
 
                         <div>
                             <button>Logga in</button>
-                            {/* <NavLink to="/products">
-                            <button>Logga in</button>
-                            </NavLink> */}
                         </div>
                     </form>
                 </section>
@@ -238,9 +227,6 @@ function LoginPage() {
 
                     <div>
                         <button type="submit">Registrera</button>
-                        {/* <NavLink to="/products">
-                        <button>Registrera</button>
-                        </NavLink> */}
                     </div>
                 </form>
                 </section>
