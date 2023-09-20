@@ -121,114 +121,134 @@ function LoginPage() {
         }
     };
 
+    //Funktion som hämtar inloggad kunds tidigare ordar
+    function getOrder(){
+        console.log("Hej från get order");
+    }
 
-  return (
-    <div>
-        <article> 
-            <section>
-                <h1>Inloggning</h1>
-                <h3>Redan kund?</h3>
-                <p>Logga in här:</p>
-                <form onSubmit={handleLoginSubmit}>
+
+    return isLoggedIn ? ( 
+        
+        <div>
+            <article> 
+                <section>
+                    <h1>Inloggning</h1>
+                    <h3>Redan kund?</h3>
+                    <p>Logga in här:</p>
+                    <form onSubmit={handleLoginSubmit}>
+                        <div>
+                        <label htmlFor="loginEmail">E-post</label>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            name="loginEmail"
+                            value={loginData.loginEmail}
+                            onChange={handleLoginChange}
+                            required
+                        />
+                        </div>
+                        
+                        <div>
+                        <label htmlFor="loginPassword">Lösenord</label>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            name="loginPassword"
+                            value={loginData.loginPassword}
+                            onChange={handleLoginChange}
+                            required
+                        />
+                        </div>
+
+                        <div>
+                            <button>Logga in</button>
+                            {/* <NavLink to="/products">
+                            <button>Logga in</button>
+                            </NavLink> */}
+                        </div>
+                    </form>
+                </section>
+            </article>
+
+            <article> 
+                <section>
+                <h1>Registrering</h1>
+                <h3>Är du ny?</h3>
+                <p>Skapa nytt konto här:</p>
+                <form onSubmit={handleRegisterSubmit}>
                     <div>
-                    <label htmlFor="loginEmail">E-post</label>
+                    <label htmlFor="firstName">Förnamn</label>
+                    <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={registerData.firstName}
+                        onChange={handleRegisterChange}
+                        required
+                    />
+                    </div>
+
+                    <div>
+                    <label htmlFor="lastName">Efternamn</label>
+                    <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={registerData.lastName}
+                        onChange={handleRegisterChange}
+                        required
+                    />
+                    </div>
+
+                    <div>
+                    <label htmlFor="email">E-post</label>
                     <input
                         type="email"
-                        id="loginEmail"
-                        name="loginEmail"
-                        value={loginData.loginEmail}
-                        onChange={handleLoginChange}
-                        required
-                    />
-                    </div>
-                    
-                    <div>
-                    <label htmlFor="loginPassword">Lösenord</label>
-                    <input
-                        type="password"
-                        id="loginPassword"
-                        name="loginPassword"
-                        value={loginData.loginPassword}
-                        onChange={handleLoginChange}
+                        id="email"
+                        name="username"
+                        value={registerData.email}
+                        onChange={handleRegisterChange}
                         required
                     />
                     </div>
 
                     <div>
-                        <button>Logga in</button>
+                    <label htmlFor="password">Lösenord</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={registerData.password}
+                        onChange={handleRegisterChange}
+                        required
+                    />
+                    </div>
+
+                    <div>
+                        <button type="submit">Registrera</button>
                         {/* <NavLink to="/products">
-                        <button>Logga in</button>
+                        <button>Registrera</button>
                         </NavLink> */}
                     </div>
                 </form>
-            </section>
-        </article>
+                </section>
+            </article>
+        </div>
+    ) : (
+        <div className="is_logged_in-div">
+        <h1>Inloggningen lyckades!</h1>
+        <h3>Välkommen user... <br/></h3>
+        <br />
+        <div className="button-container">
+            <NavLink to="/products">
+                <button className="product-button">Gå till produktsidan</button>
+            </NavLink>
+            <button className="order-button" onClick={getOrder()}>Hämta mina ordrar</button> 
+        </div>
+        </div>
 
-        <article> 
-            <section>
-            <h1>Registrering</h1>
-            <h3>Är du ny?</h3>
-            <p>Skapa nytt konto här:</p>
-            <form onSubmit={handleRegisterSubmit}>
-                <div>
-                <label htmlFor="firstName">Förnamn</label>
-                <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={registerData.firstName}
-                    onChange={handleRegisterChange}
-                    required
-                />
-                </div>
+    );
 
-                <div>
-                <label htmlFor="lastName">Efternamn</label>
-                <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={registerData.lastName}
-                    onChange={handleRegisterChange}
-                    required
-                />
-                </div>
-
-                <div>
-                <label htmlFor="email">E-post</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="username"
-                    value={registerData.email}
-                    onChange={handleRegisterChange}
-                    required
-                />
-                </div>
-
-                <div>
-                <label htmlFor="password">Lösenord</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={registerData.password}
-                    onChange={handleRegisterChange}
-                    required
-                />
-                </div>
-
-                <div>
-                    <button type="submit">Registrera</button>
-                    {/* <NavLink to="/products">
-                    <button>Registrera</button>
-                    </NavLink> */}
-                </div>
-            </form>
-            </section>
-        </article>
-    </div>
-  );
 }
 
 export default LoginPage;

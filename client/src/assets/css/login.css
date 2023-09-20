@@ -61,3 +61,24 @@ h1{
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
+
+
+/* INLOGGNINGEN LYCKADES-SIDAN */
+.is_logged_in-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* .product-button{
+    margin: 5px;
+}
+
+.order-button{
+    margin: 5px;
+} */
