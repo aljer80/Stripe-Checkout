@@ -4,13 +4,6 @@ const app = express();
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 
-// const fs = require("fs"); 
-// const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-// const CLIENT_URL = "http://localhost:5173";
-
-
-
-//const data = fs.readFileSync("users.json");
 const { userRouter } = require("./src/routers/user.js"); 
 const { productRouter } = require("./src/routers/product.js"); 
 const { orderRouter } = require("./src/routers/order.js"); 
@@ -26,8 +19,6 @@ app.use(
     // credentials: true
 })
 );
-
-
 
 app.use(express.json());
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import { NavLink } from "react-router-dom";
 
 function Confirmation() {
 
@@ -66,8 +67,11 @@ function Confirmation() {
             </h3>
             <br />
             <div className="button-div">
-                <button onClick={logOut}>Logga ut</button> 
+                <NavLink to="/products"><button>Tillbaka till produktsidan</button> </NavLink> 
             </div>
+            {/* <div className="button-div">
+                <button onClick={logOut}>Logga ut</button> 
+            </div> */}
             
         </div>
         ) : (

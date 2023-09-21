@@ -26,7 +26,6 @@ function LoginPage() {
     //Funktion som anropas när användaren skickar loginformuläret
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        console.log(loginData);
         // Skicka inloggningsdata till backend för inloggning
         const loginDataToSend = {
             username: loginData.loginEmail,
@@ -50,7 +49,6 @@ function LoginPage() {
             // Logik för vad som ska göras om inloggningen lyckades
             const user = await response.json();
             Cookies.set('userId', user.stripeCustomerId); // Användarens ID som sessionscookie
-            console.log('userId: ' +user.stripeCustomerId);
             setLoginData({
                 loginEmail: "",
                 loginPassword: "",
@@ -84,7 +82,6 @@ function LoginPage() {
     //Funktion som anropas när användaren skickar registreringsformuläret
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();
-        console.log(registerData);
         // Skicka registreringsdata till backend för att skapa ett konto
         const registerDataToSend = {
             firstName: registerData.firstName,
@@ -123,13 +120,11 @@ function LoginPage() {
         
         <div className="is_logged_in-div">
         <h1>Inloggningen lyckades!</h1>
-        <h3>Välkommen user... <br/></h3>
         <br />
         <div className="button-container">
             <NavLink className="nav-link"  to="/products">
                 <button className="product-button">Gå till produktsidan</button>
             </NavLink>
-            {/* <button className="order-button" onClick={getOrders}>Hämta mina ordrar</button> */}
         </div>
         </div>
     ) : (
@@ -232,9 +227,7 @@ function LoginPage() {
                 </section>
             </article>
         </div>
-
     );
-
 }
 
 export default LoginPage;

@@ -1,7 +1,7 @@
 /* Styling för inloggningssidan */
 
 body {
-    background-color: rgb(230, 222, 222);
+    background-color: rgb(41, 47, 63);
     display: flex;
     justify-content: center; /* Centrera horisontellt */
     align-items: center; /* Centrera vertikalt */
@@ -46,7 +46,7 @@ input {
 
 /* Styling för knappen */
 button {
-    background-color: #007bff; 
+    background-color: rgb(41, 47, 63); 
     color: #fff; 
     padding: 5px 10px;
     border-radius: 5px;
@@ -55,7 +55,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; 
+    background-color: rgb(32, 38, 56); 
 }
 
 h1{

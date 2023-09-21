@@ -29,7 +29,6 @@ function renderProducts() {
 
     function addToCart(priceId){
       setCart([... cart, {product:priceId, quantity:1}]);
-      console.log(cart);
     }
 
     // useEffect(() =>{
@@ -37,40 +36,39 @@ function renderProducts() {
     // },[cart])
 
 
-    return (
-      <div className="container">
-        
-        <div className="wrapper-all_products">
-          <h1>Produkter</h1>
-          <div className="product-container">
-            {products.map((product) => (
-              <div key={product.id} className="product">
-                <div className="product-image">
-                  <img src={product.images} alt={product.name} />
-                </div>
-                <div className="product-details">
-                  <h3 className="product-name">{product.name}</h3>
-                    <div>
-                      <p>{product.description}</p>
-                      <p>Pris: {product.price / 100}kr</p>
-                    </div>
-                    <div className="product-button">
-                      <button onClick={() => addToCart(product.priceId)}>Köp</button>
-                    </div>
-                </div>
-                
+  return (
+    <div className="container">
+      
+      <div className="wrapper-all_products">
+        <h1>Produkter</h1>
+        <div className="product-container">
+          {products.map((product) => (
+            <div key={product.id} className="product">
+              <div className="product-image">
+                <img src={product.images} alt={product.name} />
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* <div> <Aside /> </div> */}
-        <div className="aside">
-          <div className="cart-div"><Cart cart={cart} /> </div>
-          <div className="order-div"><Orders /></div>
+              <div className="product-details">
+                <h3 className="product-name">{product.name}</h3>
+                  <div>
+                    <p>{product.description}</p>
+                    <p>Pris: {product.price / 100}kr</p>
+                  </div>
+                  <div className="product-button">
+                    <button onClick={() => addToCart(product.priceId)}>Köp</button>
+                  </div>
+              </div>
+              
+            </div>
+          ))}
         </div>
       </div>
-            );
+
+      <div className="aside">
+        <div className="cart-div"><Cart cart={cart} /> </div>
+        <div className="order-div"><Orders /></div>
+      </div>
+    </div>
+  );
 
 }
 

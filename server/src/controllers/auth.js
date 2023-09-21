@@ -49,7 +49,6 @@ async function registerUser(req, res) {
 
     users.push(newUser);
     writeUsersToFile(users);
-    console.log(newUser);
     res.status(201).json(newUser);
   } catch (error) {
     res.status(400).json(error);

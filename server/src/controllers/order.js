@@ -13,11 +13,6 @@ function readOrdersFromFile() {
   }
 }
 
-function writeOrdersToFile(orders) {
-  const jsonData = JSON.stringify(orders, null, 2);
-  fs.writeFileSync(ordersFilePath, jsonData);
-}
-
 //funktion för att hämta alla sina egna ordrar
 function getOrders(req, res, next) {
   try {
