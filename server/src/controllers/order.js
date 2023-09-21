@@ -1,26 +1,8 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const fs = require("fs");
 
-
-//Efter verifiering, ver. sessionen innehåller id:t
-//funktion för att skapa en order/beställning
-async function createOrder(req, res, next) {
-  try {
-    const newOrder = {
-      // Skapa orderstruktur här 
-    };
-
-    // Lägger till order i JSON-filen för att spara orderhistoriken
-    const orders = readOrdersFromFile();
-    orders.push(newOrder);
-    writeOrdersToFile(orders);
-
-    res.status(201).json(newOrder);
-  } catch (error) {
-    console.log(error);
-    res.status(401).json(error);
-  }
-}
+// Sökväg till JSON-filen
+const ordersFilePath = "./src/utilities/orders.json";
 
 function readOrdersFromFile() {
   try {
@@ -38,13 +20,23 @@ function writeOrdersToFile(orders) {
 
 //funktion för att hämta alla sina egna ordrar
 function getOrders(req, res, next) {
-    try {
-      const orders = readOrdersFromFile();
-      res.status(200).json(orders);
-    } catch (error) {
-      res.status(500).json();
+  try {
+    const userId = req.session.stripeCustomerId
+    // const userId = req.session.userId;
+    if (!userId) {
+      return res.status(401).json({ error: "Unauthorized" });
     }
+    const orders = readOrdersFromFile();
+    
+    const userOrders = orders.filter(order => order.customerId === userId); // Filtrerar ordrarna baserat på användaren (användar-ID). 
+      console.log(userOrders);
+      
+      res.status(200).json(userOrders);
+  
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
   }
- 
+}
 
-  module.exports = { createOrder, getOrders }; 
+  module.exports = { getOrders }; 

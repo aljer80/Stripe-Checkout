@@ -1,3 +1,10 @@
+
+/* Parent div, runt allt */
+.container{
+  display: flex;
+}
+
+/* Div runt hela Product-komponenten*/
 .wrapper-all_products{
   border: 1px solid blue;
   display: flex;
@@ -7,8 +14,8 @@
   margin-left: 10px;
 }
 
+/* Div runt allt en enskild produkt innehåller. Onödig? Gör .product samma sak?*/
   .product-container {
-   
     display: flex;
     flex-wrap: wrap; /* Produkter kommer att gå till nästa rad om de inte får plats */
     justify-content: space-between; /* Jämnt fördelade produkter på raden */
@@ -27,6 +34,7 @@
     height: auto;
   }
   
+  /* Div runt namn, pris och knapp*/
   .product-details {
     flex-grow: 1; /* Gör att denna del växer och tar upp allt tillgängligt utrymme */
     display: flex;
@@ -57,10 +65,12 @@
     padding: 10px;
   }
 
-  .cart-div{
-    display: flex;
-    flex-direction: column;
-  }
+  /* Div med Order och Cart-komponenterna i sig*/
+.aside{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
   
   /* CART */
   .cart-div{
@@ -68,18 +78,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+
+    /* ORDERS */
+  .order-div{
+    display: flex;
+    flex-direction: column;
     
-    align-items: flex-end;
-}
-
-.products_in_cart-div{
-    display: flex;
-}
-
-.cart-button{
-    display: flex;
-    align-content: center;
-    justify-content: flex-end;
-    width: 90%;
-    padding: 10px;
-}
+  }

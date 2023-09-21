@@ -22,9 +22,12 @@ const { customerRouter } = require("./src/routers/customer.js");
 app.use(
     cors({
     //origin: CLIENT_URL,
-    origin: "*"
+    origin: "*",
+    // credentials: true
 })
 );
+
+
 
 app.use(express.json());
 

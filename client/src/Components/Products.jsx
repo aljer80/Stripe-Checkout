@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Cart from "./Cart"
+// import Aside from "./Aside";
+import Cart from './Cart';
+import Orders from './Orders';
 import "../assets/css/products.css"
 
 
@@ -27,16 +29,16 @@ function renderProducts() {
 
     function addToCart(priceId){
       setCart([... cart, {product:priceId, quantity:1}]);
-
+      console.log(cart);
     }
 
-    useEffect(() =>{
-     console.log(cart);
-    },[cart])
-  
-   
+    // useEffect(() =>{
+    //  console.log(cart);
+    // },[cart])
+
+
     return (
-      <div>
+      <div className="container">
         
         <div className="wrapper-all_products">
           <h1>Produkter</h1>
@@ -60,24 +62,13 @@ function renderProducts() {
               </div>
             ))}
           </div>
-        
-          <div className="cart-div">
-            <h1>Kundkorg</h1>
-            <Cart cart={cart}>
-              <div className="products_in_cart-div">
-                {cart.map((cartItem, index) => (
-                  <div key={`${cartItem.product.id}-${index}`}>
-                    <p>{cartItem.product.name}</p>
-                    <div>
-                      <p>Pris: {cartItem.product.price / 100} kr per st</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Cart>
-          </div>
-          </div>
-          
+        </div>
+
+        {/* <div> <Aside /> </div> */}
+        <div className="aside">
+          <div className="cart-div"><Cart cart={cart} /> </div>
+          <div className="order-div"><Orders /></div>
+        </div>
       </div>
             );
 

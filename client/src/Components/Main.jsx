@@ -1,15 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import Cart from "./Cart";
+import Aside from "./Cart";
 import Login from "./Login";
 import Confirmation from "./Confirmation";
 import Cancel from "./Cancel";
 import Products from "./Products"
+import Cart from "./Cart";
 
 function Main() {
     return (
         <div>
             <Routes>
                 <Route path="/" element={<Cart />} />
+                {/* <Route path="/" element={<Aside />} /> */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/confirmation" element={<Confirmation />} />

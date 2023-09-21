@@ -14,7 +14,7 @@ function Cart({cart}) {
         alert("Logga in för att genomföra betalningen.");
         return;
       }
-        
+      console.log(cart);
       const response = await fetch("/api/checkout/create-checkout-session/",
         {
         method: "POST",
@@ -39,11 +39,16 @@ function Cart({cart}) {
     }
   }
 
-   
+
   return isUserLoggedIn ? (
     <div> 
-      <button onClick={handlePayment}>BETALA VIA STRIPE CHECKOUT</button>
-          </div>
+      
+
+      <div> 
+        <button onClick={handlePayment}>BETALA VIA STRIPE CHECKOUT</button>
+      </div>
+
+    </div>
   ) : (
     <div>
       <p>Du måste vara inloggad för att kunna gå till kassan. <br />
@@ -57,3 +62,26 @@ function Cart({cart}) {
 }
 
 export default Cart;
+
+{/* <div className="products_in_cart-div">
+        {cart.map((cartItem, index) => (
+          <div key={`${cartItem.product.id}-${index}`}>
+            <p>{cartItem.product.name}</p>
+            <div>
+              <p>Pris: {cartItem.product.price / 100} kr per st</p>
+            </div>
+          </div>
+        ))}
+      </div> */}
+
+    //   .products_in_cart-div{
+    //     display: flex;
+    // }
+    
+    // .cart-button{
+    //     display: flex;
+    //     align-content: center;
+    //     justify-content: flex-end;
+    //     width: 90%;
+    //     padding: 10px;
+    // }

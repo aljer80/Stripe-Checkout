@@ -8,7 +8,7 @@ const CLIENT_URL = "http://localhost:5173";
   const checkoutSession = async (req, res) => {
     try {
       const customerId = req.session.stripeCustomerId;
-
+      console.log(customerId);
       const session = await stripe.checkout.sessions.create({
         customer: customerId, // Anger kund för sessionen
         line_items: req.body.map((item) => {
@@ -22,7 +22,6 @@ const CLIENT_URL = "http://localhost:5173";
         success_url: `${CLIENT_URL}/confirmation`, //man kan - om man vill - få sessions id:t från Stripe här, lagrad i url:en, som en query parameter: success_url: `${CLIENT_URL}/confirmation?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${CLIENT_URL}/cancel`,
       });
-  
       res.status(200).json({ url: session.url, sessionId: session.id });
     } catch (error) {
       console.log(error.message);
@@ -70,6 +69,7 @@ const verifySession = async (req, res) => {
       const order = {
         created: session.created, 
         customer: session.customer_details.name,
+        customerId: session.stripeCustomerId, //LAGT TILL NU!!!
         products: line_items.data.map(item => {
           return {
             product: item.description, //namnet på produkten
@@ -79,13 +79,11 @@ const verifySession = async (req, res) => {
           };
         }),
       };
-
       //Spara ORDER (SKRIV TILL JSON-filen)
       const orders = readOrdersFromFile(); // Läser in befintliga ordrar
       //orders.push(order);
       writeOrdersToFile([... orders, order]); // Sparar ordern i json-filen
       res.status(200).json({ verified:true });
-
   } catch (error) {
     console.log(error.message);
     res.status(400).json("400 Error. Något blev fel på klienten.");
