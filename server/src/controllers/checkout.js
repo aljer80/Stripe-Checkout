@@ -56,9 +56,7 @@ function writeOrdersToFile(orders) {
 const verifySession = async (req, res) => {
   try {
       //hämta sessionen från Stripe och verifiera den
-      const session = await stripe.checkout.sessions.retrieve(req.body.sessionId); 
-      console.log(req.body.sessionId);
-      
+      const session = await stripe.checkout.sessions.retrieve(req.body.sessionId);       
       //plocka ut vem som köpt, och vad man köpt (om sessionen är paid)
       if(session.payment_status !== "paid"){
         return res.status(400).json({ verified:false });
@@ -69,7 +67,7 @@ const verifySession = async (req, res) => {
       const order = {
         created: session.created, 
         customer: session.customer_details.name,
-        customerId: session.stripeCustomerId, //LAGT TILL NU!!!
+        customerId: session.customer, //LAGT TILL NU!!!
         products: line_items.data.map(item => {
           return {
             product: item.description, //namnet på produkten

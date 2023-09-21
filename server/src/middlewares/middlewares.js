@@ -1,14 +1,5 @@
 //MIDDLEWARES
 
-// //middleware för validering
-// function validate (userJoiSchema) {
-//     return function (req, res, next) {
-//         const { error } = userJoiSchema.validate(req.body);
-//         if (!error) return next();
-//         res.status(400).json(error.message);
-//     };
-// }
-
 
 //middleware för att kolla om användaren är inloggad
 function userIsLoggedIn (req, res, next) {

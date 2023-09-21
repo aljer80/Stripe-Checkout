@@ -1,3 +1,16 @@
 [
-  
+  {
+    "firstName": "Alexandra",
+    "lastName": "Jernberg",
+    "username": "jernberg.alexandra@gmail.com",
+    "password": "$2b$10$gRDwZHuPbkvgeCn6k9Kfv./XZhd1nAqc2rCX0LMiV6FNhN8SbBoky",
+    "stripeCustomerId": "cus_OgGII77CLOieWz"
+  },
+  {
+    "firstName": "Donk",
+    "lastName": "Johnson",
+    "username": "donk@foryou.com",
+    "password": "$2b$10$FGqdSc5WMpmiaAA8q28XaeQGnBtKShiaU2TjbaukrYcVbba9CWjOe",
+    "stripeCustomerId": "cus_OgGfLdGCjfvupU"
+  }
 ]
