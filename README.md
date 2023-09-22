@@ -57,6 +57,8 @@ Clone the repository from GitHub.com to your local computer by following these s
 6. Type git clone, and then paste the copied URL.
 7. Press Enter to create your local clone. 
 
+You also need to create a .env-file and add a STRIPE_SECRET_KEY(variable) + a value (your secret key) and a PORT(variable) + a value (3000) in the .env-file. You get the secret key from Stripe when you have created an account there.
+
 # Run Stripe-Checkout
 Open a terminal. Type 'cd server' to navigate to the server folder. Type 'npm install' to install node_modules in the server folder. Type 'nodemon server.js' to start the server.
 
