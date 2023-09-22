@@ -44,7 +44,7 @@ function Cart({cart}) {
       
 
       <div> 
-        <button onClick={handlePayment}>BETALA VIA STRIPE CHECKOUT</button>
+        <button onClick={handlePayment}>Betala via Stripe Checkout</button>
       </div>
 
     </div>

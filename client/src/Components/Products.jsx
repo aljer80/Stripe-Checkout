@@ -40,7 +40,6 @@ function renderProducts() {
     <div className="container">
       
       <div className="wrapper-all_products">
-        <h1>Produkter</h1>
         <div className="product-container">
           {products.map((product) => (
             <div key={product.id} className="product">
