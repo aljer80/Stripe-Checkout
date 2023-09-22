@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
+import "../assets/css/index.css";
 
 function Confirmation() {
 
