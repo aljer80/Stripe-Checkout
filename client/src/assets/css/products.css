@@ -42,6 +42,8 @@
     
   }
   
+  
+  
   /* Div runt namn, pris och knapp*/
   .product-details {
     flex-grow: 1; /* Gör att denna del växer och tar upp allt tillgängligt utrymme */
